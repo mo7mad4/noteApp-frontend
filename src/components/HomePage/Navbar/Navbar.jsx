@@ -94,7 +94,7 @@ export default function Navbar() {
                 >
                   <Avatar
                     size={"sm"}
-                    src={"https://avatars.dicebear.com/api/male/username.svg"}
+                    src={"https://avatars.githubusercontent.com/u/64334421?s=400&u=0b5fc7c1e8dfa22352a1874c39f8c93e4b470e3b&v=4"}
                   />
                 </MenuButton>
                 <MenuList alignItems={"center"}>
@@ -102,12 +102,12 @@ export default function Navbar() {
                   <Center>
                     <Avatar
                       size={"2xl"}
-                      src={"https://avatars.dicebear.com/api/male/username.svg"}
+                      src={"https://avatars.githubusercontent.com/u/64334421?s=400&u=0b5fc7c1e8dfa22352a1874c39f8c93e4b470e3b&v=4"}
                     />
-                  </Center>
+                  </Center> 
                   <br />
                   <Center>
-                    <p>Username</p>
+                    <p>Mohammed Raida</p>
                   </Center>
                   <br />
                   <MenuDivider />
