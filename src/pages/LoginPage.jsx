@@ -51,7 +51,7 @@ const LoginPage = () => {
 
       <Stack spacing={4} mx={'auto'}  px={50} >
         <Stack align={'center'} >
-          <Heading fontSize={'3xl'}>Sigin in to your account</Heading>
+          <Heading fontSize={'3xl'}>Login with Notes App</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
             to enjoy all of our cool features ✌️
           </Text>
@@ -93,7 +93,7 @@ const LoginPage = () => {
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Login in
+                Login
               </Button>
 
               
