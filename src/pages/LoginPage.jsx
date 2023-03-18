@@ -68,12 +68,12 @@ const LoginPage = () => {
 
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input  onClick={(e)=>setEmail(e.target.value)} type="email"  />
+              <Input  onChange={(e)=>setEmail(e.target.value)} type="email"  />
             </FormControl>
 
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input  onClick={(e)=>setPassword(e.target.value)} type="password" />
+              <Input  onChange={(e)=>setPassword(e.target.value)} type="password" />
             </FormControl>
 
             <Stack spacing={4}>

@@ -15,11 +15,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import loginImg from "../assets/Images/loginPageImage.png";
-import { getUser } from "../Redux/users/user.actions";
+// import { getUser } from "../Redux/users/user.actions";
 import axios from "axios";
 
 const SignUpPage = () => {
@@ -28,6 +28,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSignUp = async() => {
+    console.log({name,email,password})
       let data = await axios.post("http://localhost:4000/user/register",{
         name,email,password
       })
@@ -68,13 +69,13 @@ const SignUpPage = () => {
               <Stack spacing={4}>
                 <FormControl id="name">
                   <FormLabel>Name</FormLabel>
-                  <Input onClick={(e) => setName(e.target.value)} type="text" />
+                  <Input onChange={(e) => setName(e.target.value)} type="text" />
                 </FormControl>
 
                 <FormControl id="email">
                   <FormLabel>Email address</FormLabel>
                   <Input
-                    onClick={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     type="email"
                   />
                 </FormControl>
@@ -82,7 +83,7 @@ const SignUpPage = () => {
                 <FormControl id="password">
                   <FormLabel>Password</FormLabel>
                   <Input
-                    onClick={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                     type="password"
                   />
                 </FormControl>
