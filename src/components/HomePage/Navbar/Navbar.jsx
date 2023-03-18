@@ -52,7 +52,7 @@ export default function Navbar() {
               nav("/");
             }}
           >
-            Note App
+            Notes App
           </Box>
 
           <Flex alignItems={"center"}>

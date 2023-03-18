@@ -51,7 +51,7 @@ const LoginPage = () => {
 
       <Stack spacing={4} mx={'auto'}  px={50} >
         <Stack align={'center'} >
-          <Heading fontSize={'3xl'}>Sigin in to your account</Heading>
+          <Heading fontSize={'3xl'}>Login with Notes App</Heading>
           <Text fontSize={'lg'} color={'gray.600'}>
             to enjoy all of our cool features ✌️
           </Text>
@@ -68,12 +68,12 @@ const LoginPage = () => {
 
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input  onClick={(e)=>setEmail(e.target.value)} type="email"  />
+              <Input  onChange={(e)=>setEmail(e.target.value)} type="email"  />
             </FormControl>
 
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input  onClick={(e)=>setPassword(e.target.value)} type="password" />
+              <Input  onChange={(e)=>setPassword(e.target.value)} type="password" />
             </FormControl>
 
             <Stack spacing={4}>
@@ -93,7 +93,7 @@ const LoginPage = () => {
                 _hover={{
                   bg: 'blue.500',
                 }}>
-                Login in
+                Login
               </Button>
 
               
