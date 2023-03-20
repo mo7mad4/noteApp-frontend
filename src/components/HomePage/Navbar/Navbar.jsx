@@ -16,10 +16,17 @@ import {
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { LOGOUT } from "../../../Redux/users/user.types";
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch()
+  const { auth, token, loading, error } = useSelector(
+    (state) => state.userReducer
+  );
+
   const nav = useNavigate();
 
   const handleClickButtonLogin = () => {
@@ -36,6 +43,7 @@ export default function Navbar() {
     <>
       <Box
         position={"fixed"}
+        top={0}
         zIndex={1000}
         w={"100%"}
         boxShadow={
@@ -60,6 +68,7 @@ export default function Navbar() {
               <Button
                 backgroundColor={"#dfaf53"}
                 onClick={handleClickButtonLogin}
+                display={auth == true? "none" : "block"}
               >
                 Login
               </Button>
@@ -67,13 +76,15 @@ export default function Navbar() {
               <Button
                 backgroundColor={"#dfaf53"}
                 onClick={handleClickButtonSignUp}
+                display={auth == true ? "none" : "block"}
               >
-                SignUp
+                Sign Up
               </Button>
 
               <Button
                 backgroundColor={"#dfaf53"}
                 onClick={handleClickButtonAllNotes}
+                display={auth == true ? "block" : "none"}
               >
                 All Notes
               </Button>
@@ -94,7 +105,9 @@ export default function Navbar() {
                 >
                   <Avatar
                     size={"sm"}
-                    src={"https://avatars.githubusercontent.com/u/64334421?s=400&u=0b5fc7c1e8dfa22352a1874c39f8c93e4b470e3b&v=4"}
+                    src={
+                      "https://avatars.githubusercontent.com/u/64334421?s=400&u=0b5fc7c1e8dfa22352a1874c39f8c93e4b470e3b&v=4"
+                    }
                   />
                 </MenuButton>
                 <MenuList alignItems={"center"}>
@@ -102,9 +115,11 @@ export default function Navbar() {
                   <Center>
                     <Avatar
                       size={"2xl"}
-                      src={"https://avatars.githubusercontent.com/u/64334421?s=400&u=0b5fc7c1e8dfa22352a1874c39f8c93e4b470e3b&v=4"}
+                      src={
+                        "https://avatars.githubusercontent.com/u/64334421?s=400&u=0b5fc7c1e8dfa22352a1874c39f8c93e4b470e3b&v=4"
+                      }
                     />
-                  </Center> 
+                  </Center>
                   <br />
                   <Center>
                     <p>Mohammed Raida</p>
@@ -113,7 +128,11 @@ export default function Navbar() {
                   <MenuDivider />
                   <MenuItem>Your Servers</MenuItem>
                   <MenuItem>Account Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  <MenuItem onClick={()=>{
+                      dispatch({type:LOGOUT})
+                  }}>
+                  Logout
+                  </MenuItem>
                 </MenuList>
               </Menu>
             </Stack>

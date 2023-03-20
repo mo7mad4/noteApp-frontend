@@ -24,7 +24,7 @@ import { getUser } from "../Redux/users/user.actions";
 const LoginPage = () => {
   const nav = useNavigate()
     const {auth,token,loading,error} = useSelector((state)=>state.userReducer)
-    console.log(auth,token)
+    // console.log(auth,token)
     if(auth){
       nav("/notes")
     }
