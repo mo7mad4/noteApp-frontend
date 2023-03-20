@@ -21,6 +21,7 @@ import { useNavigate } from "react-router-dom";
 import loginImg from "../assets/Images/loginPageImage.png";
 // import { getUser } from "../Redux/users/user.actions";
 import axios from "axios";
+import { BASE_URL } from "../constants/config";
 
 const SignUpPage = () => {
   const nav = useNavigate();
@@ -29,7 +30,7 @@ const SignUpPage = () => {
   const [password, setPassword] = useState("");
   const handleSignUp = async() => {
     console.log({name,email,password})
-      let data = await axios.post("http://localhost:4000/user/register",{
+      let data = await axios.post(`${BASE_URL}/user/register`,{
         name,email,password
       })
       let {message,status} = data.data

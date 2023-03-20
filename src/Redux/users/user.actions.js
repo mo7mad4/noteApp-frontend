@@ -1,4 +1,5 @@
 import axios from "axios"
+import { BASE_URL } from "../../constants/config"
 import { LOGIN_USER_ERROR, LOGIN_USER_LOADING, LOGIN_USER_SUCCESS } from "./user.types"
 
 
@@ -7,7 +8,8 @@ export const getUser = (obj) => async(distpatch) =>{
         type:LOGIN_USER_LOADING
     })
     try {
-        let data = await axios("http://localhost:4000/user/login",{
+        // "http://localhost:4000/user/login"
+        let data = await axios(`${BASE_URL}/user/login`,{
             method:"post",
             data:obj
         })
@@ -16,6 +18,7 @@ export const getUser = (obj) => async(distpatch) =>{
             distpatch({type:LOGIN_USER_SUCCESS,payload:token})        
             
         }else{
+            alert(message)
             distpatch({type:LOGIN_USER_ERROR})
         }
     } catch (error) {
